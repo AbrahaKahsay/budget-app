@@ -1,0 +1,17 @@
+<%= form_with(model: @new_category_expense, local:true) do |f| %>
+<div class="container">
+  <div class="form-group">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class:"form-control",placeholder: "Please Enter Expense Name" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount, class:"form-control",placeholder: "Please Enter the Amount" %>
+  </div>
+
+  <div class="submit-button">
+    <%= f.submit class: "btn btn-outline-dark btn-lg" %>
+  </div>
+</div>
+<% end %>
