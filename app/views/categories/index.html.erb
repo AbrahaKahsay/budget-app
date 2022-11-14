@@ -1,0 +1,11 @@
+<nav>
+  <h1>List of All Categories</h1>
+</nav>
+
+<div class="categories">
+  <% @categories.each do |category| %>
+    <%= category.name %>
+    <%= category.icon%>
+  <% end %>
+  <%= button_to "New Category", new_category_path, method: :get, class: 'form-submit' %>
+</div>
