@@ -2,10 +2,17 @@
   <h1>List of All Expenses</h1>
 </nav>
 
+<div class="heading">
+
+  <h3><%= category.name%></h3>
+  <p>$<%= category.total_expense%></p>
+</div>
+
 <div class="categories">
   <% @expenses.each do |expense| %>
     <h3><%= expense.name %></h3>
-    </h3><%= expense.amount%></h3>
+    <p><%= expense.created_at %></p>
+    <h3>$<%= expense.amount%></h3>
   <% end %>
   <%= button_to "New Expense", new_category_expense_path, method: :get, class: 'form-submit' %>
 </div>

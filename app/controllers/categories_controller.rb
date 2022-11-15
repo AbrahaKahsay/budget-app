@@ -2,12 +2,12 @@ class CategoriesController < ApplicationController
     before_action :authenticate_user!
     # load_and_authorize_resource
     def index;
-        @categories = Category.all
+        @categories = Category.where(user_id: current_user.id).order(created_at: :desc)
     end
 
-    # def show
-    #     @category = Category.find(params[:id])
-    #   end
+    def show
+        @category = Category.find(params[:id])
+      end
 
     def new
         @category = Category.new

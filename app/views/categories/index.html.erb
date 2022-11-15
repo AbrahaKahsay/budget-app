@@ -3,9 +3,15 @@
 </nav>
 
 <div class="categories">
-  <% @categories.each do |category| %>
-    <%= category.name %>
-    <%= category.icon%>
-  <% end %>
+    <% @categories.each do |category| %>
+    <%= link_to category_expenses_path(:category_id => category), method: :get  do%>
+      <div>
+        <div><%= category.icon%></div>
+        <div><%=category.name %></div>
+        <div><p>$ here</p> </div>
+      </div>
+    <% end %>
+    <% end %>
+
   <%= button_to "New Category", new_category_path, method: :get, class: 'form-submit' %>
 </div>
