@@ -3,6 +3,7 @@ class ExpensesController < ApplicationController
   # load_and_authorize_resource
   def index
     @catagory = Category.find(params[:category_id])
+    @categories = current_user.categories.order(created_at: :desc)
     @expenses = @catagory.expenses.order(created_at: :desc)
   end
 
