@@ -5,10 +5,10 @@
 <div class="categories">
     <% @categories.each do |category| %>
     <%= link_to category_expenses_path(:category_id => category), method: :get  do%>
-      <div>
+      <div class="category">
         <div><%= category.icon%></div>
         <div><%=category.name %></div>
-        <div><p>$ here</p> </div>
+        <div>$ here</div>
       </div>
     <% end %>
     <% end %>
