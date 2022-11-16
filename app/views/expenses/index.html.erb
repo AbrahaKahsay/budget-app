@@ -3,9 +3,10 @@
 </nav>
 
 <div class="heading">
-
+<%@categories.each do |category|%>
   <h3><%= category.name%></h3>
   <p>$<%= category.total_expense%></p>
+  <% end %>
 </div>
 
 <div class="categories">
