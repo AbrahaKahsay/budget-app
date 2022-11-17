@@ -1,35 +1,39 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
   # load_and_authorize_resource
+
   def index
-    @catagory = Category.find(params[:category_id])
-    @categories = current_user.categories.order(created_at: :desc)
-    @expenses = @catagory.expenses.order(created_at: :desc)
-  end
-
-  # def show
-  #     @expense = Expense.find(params[:id])
-  # end
-
-  def new
-    @expense = Expense.new
-    @categories = current_user.categories.order(created_at: :desc)
-  end
-
-  def create
-    @expense = Expense.new(expense_params)
-    @expense.user_id = current_user.id
-
-    if @expense.save
-      redirect_to category_expenses_path
-    else
-      render 'new'
+    @category = Category.find(params[:category_id])
+    @expenses = @category.expenses.all
+    @total = 0
+    @expenses.each do |expense|
+      @total += expense.amount
     end
   end
 
-  private
+  def new
+    @expense = Expense.new
+  end
+
+  def create
+    @category = Category.find(params[:category_id])
+    @expense = @category.expenses.new(expense_params)
+    @expense.user_id = current_user.id
+
+    if @expense.save
+      flash[:notice] = 'Transaction was successfully created'
+      redirect_to category_expenses_path(@category)
+    else
+      render :new
+    end
+  end
+
+  def recent_expenses
+    @expenses = @category.expenses.all
+    @expenses.order(created_at: :desc)
+  end
 
   def expense_params
-    params.require(:expense).permit(:name, :amount)
+    params.require(:expense).permit(:name, :amount, :user_id, :category)
   end
 end

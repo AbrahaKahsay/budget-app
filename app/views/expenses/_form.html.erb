@@ -1,17 +1,30 @@
-<%= form_with(model: @new_category_expense, local:true) do |f| %>
-<div class="container">
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, class:"form-control",placeholder: "Please Enter Expense Name" %>
+<nav class="nav">
+  <%= link_to category_expenses_path(params[:category_id], @category), class: 'link' do %>
+    <span class="iconify" data-icon="eva:arrow-ios-back-fill" data-width="50" data-height="40" style="color: white; margin-left: -12rem;"></span>
+  <%end%>
+  <h2 class="heading">Add Expense</h2>
+</nav>
+<%= form_with model: @expense, url: "/categories/#{params[:category_id]}/expenses" , method: :post, class: "form" do |f| %>
+  <section class="form-section">
+    <%= f.text_field :name,
+    class: "text_input",
+    placeholder: "Expense Name" %>
+  </section>
+
+  <section class="form-section">
+    <%= f.number_field :amount,
+    class: "number_field",
+    placeholder: "Add Amount" %>
+  </section>
+
+  <div class="select">
+    <% @categories = Category.all %>
+     <%= f.select(:category_id, @categories.map { |category| [category.name, category_id: category.id] }, {:class => "category-select"}) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount, class:"form-control",placeholder: "Please Enter the Amount" %>
-  </div>
-
-  <div class="submit-button">
-    <%= f.submit class: "btn btn-outline-dark btn-lg" %>
-  </div>
-</div>
+  <section class="form-section">
+    <div class="submit1">
+      <%= f.submit "Save", class: "submit_button" %>
+    </div>
+  </section>
 <% end %>
