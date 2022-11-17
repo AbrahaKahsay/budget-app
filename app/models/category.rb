@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   has_many :expenses, through: :category_expenses
   belongs_to :user
 
-  def total_expense
+  def total_amount
     expenses.sum(:amount)
   end
 end
