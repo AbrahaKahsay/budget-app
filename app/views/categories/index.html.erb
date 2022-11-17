@@ -3,15 +3,16 @@
 </nav>
 
 <div class="categories">
-    <% @categories.each do |category| %>
-    <%= link_to category_expenses_path(:category_id => category), method: :get  do%>
-      <div class="category">
-        <div><%= category.icon%></div>
-        <div><%=category.name %></div>
-        <div>$ here</div>
-      </div>
+   <% @categories.each do |category| %>
+          <%=link_to category_expenses_path(category_id: category.id), class: 'category-link' do %>
+            <div class="group_container">
+              <div><span class="iconify" data-icon="<%= category.icon %>" data-width="80" data-height="65"></span></div>
+              <div class="name"><%= category.name%></div>
+              <div class="total"><p>$0</p></div>
+            </div>
+          <% end %>
+        <br>
+        <br>
     <% end %>
-    <% end %>
-
-  <%= button_to "New Category", new_category_path, method: :get, class: 'form-submit' %>
 </div>
+<%= button_to "New Category", new_category_path, method: :get, class: 'form-submit' %>
