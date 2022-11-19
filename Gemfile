@@ -29,7 +29,8 @@ gem 'jbuilder'
 
 # Add devise for authentication
 gem 'devise'
-
+# Add cancancan authorization tool
+gem 'cancancan'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -75,3 +76,5 @@ group :test do
 end
 
 gem 'ffi'
+
+gem 'tailwindcss-rails', '~> 2.0'

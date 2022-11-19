@@ -1,0 +1,11 @@
+<section class="h-screen w-full bg-white">
+  <div class="w-full h-full">
+    <div class="h-1/2 flex items-center justify-center text-3xl">
+      <%= image_tag @logo, :alt => 'logo'%>
+    </div>
+    <div class="h-1/2  flex flex-col justify-end ">
+      <%= link_to "Sign In", new_user_session_path, class: "bg-main text-white h-12 text-center px-5 py-2 mb-2 " %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "bg-main text-white h-12 text-center px-5 py-2" %>
+    </div>
+  </div>
+</section>
