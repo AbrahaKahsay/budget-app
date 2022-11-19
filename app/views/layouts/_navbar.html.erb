@@ -4,15 +4,28 @@
         <i class="fa-solid fa-bars text-white text-3xl"></i>
     <%end%>
 
-    <% if controller_name == 'categories' and controller.action_name == 'new' %>
+    <% if controller_name == 'expenses' and controller.action_name == 'index' %>
         <%= link_to categories_path do%>
            <i class="fa-solid fa-arrow-left text-white text-3xl"></i>
         <%end%>
     <%end%>
 
-    <% if controller_name == 'categories' and controller.action_name == 'index' %>
-    <h4>Categories</h4>  
+    <% if controller_name == 'expenses' and controller.action_name == 'index' %>
+    <h4>Details</h4>  
     <% end %>
+
+    <% if controller_name == 'expenses' and controller.action_name == 'new' %>
+        <%= link_to categories_path do%>
+           <i class="fa-solid fa-arrow-left text-white text-3xl"></i>
+        <%end%>
+    <%end%>
+
+    <% if controller_name == 'expenses' and controller.action_name == 'new' %>
+    <h4>New</h4>  
+    <% end %>
+
+
+    
 
     <% if controller_name == 'categories' and controller.action_name == 'new' %>
     <h4>New</h4>  
