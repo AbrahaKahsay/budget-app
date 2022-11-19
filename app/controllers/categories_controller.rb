@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.where(user_id: current_user.id)
+    @categories = Category.where(user_id: current_user.id).order(created_at: :desc)
     @total = {}
     @categories.each do |category|
       @total[category.id] = Expense.joins(:category_expenses)
