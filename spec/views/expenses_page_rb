@@ -1,0 +1,43 @@
+require 'rails_helper'
+
+RSpec.describe 'Expenses page', type: :feature do
+    before(:each) do
+        DatabaseCleaner.clean_with(:truncation)
+        @user = User.create(
+          name: 'Abraha',
+          email: 'abrahak81@gmail.com',
+          password: '123456'
+        )
+        visit user_session_path
+        fill_in 'Email', with: @user.email.to_s
+        fill_in 'Password', with: @user.password.to_s
+        find("input[type='submit']").click
+    
+        @category = Category.create(name: 'Shopping', icon: '1', user_id: 1)
+        @expense = Expense.create(name: 'Dress', amount: 20, user_id: 1)
+        @category_expense = CategoryExpense.create(category_id: 1, expense_id: 1)
+        visit category_expenses_path(@category)
+      end
+
+  it 'should show the expense name' do
+    expect(page).to have_content('Dress')
+  end
+
+  it 'should show the category name' do
+    expect(page).to have_content('Shopping')
+  end
+
+
+  it 'should show the dress amount' do
+    expect(page).to have_content(20)
+  end
+
+  it 'should have a button to add a new expense' do
+    expect(page).to have_content('Add Expense')
+  end
+
+  it 'Add expense should navigate to form page' do
+    click_on 'New Transaction'
+    expect(current_path).to eq(new_category_expense_path(@category))
+  end
+end
