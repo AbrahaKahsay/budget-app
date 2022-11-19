@@ -12,11 +12,12 @@ RSpec.describe 'Expenses page', type: :feature do
         fill_in 'Email', with: @user.email.to_s
         fill_in 'Password', with: @user.password.to_s
         find("input[type='submit']").click
+
     
-        @category = Category.create(name: 'Shopping', icon: '1', user_id: 1)
-        @expense = Expense.create(name: 'Dress', amount: 20, user_id: 1)
-        @category_expense = CategoryExpense.create(category_id: 1, expense_id: 1)
-        visit category_expenses_path(@category)
+        @category = Category.create(name: 'Shopping', icon: 'https://png.pngtree.com/png-clipart/20220626/original/pngtree-plane-travel-logo-vector-template-png-image_8185591.png', user_id: @user.id)
+        @expense = Expense.create(name: 'Dress', amount: 20, user_id: @user.id)
+        @category_expense = CategoryExpense.create(category_id: @category.id, expense_id: @expense.id)
+        visit category_expenses_path(@category.id)
       end
 
   it 'should show the expense name' do
@@ -37,7 +38,7 @@ RSpec.describe 'Expenses page', type: :feature do
   end
 
   it 'Add expense should navigate to form page' do
-    click_on 'New Transaction'
+    click_link 'Add Expense'
     expect(current_path).to eq(new_category_expense_path(@category))
   end
 end

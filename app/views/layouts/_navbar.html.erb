@@ -32,6 +32,8 @@
     <h4>New</h4>  
     <% end %>
 
-
-    <i class="fa-solid fa-search text-white text-3xl"></i>
+    <% if controller_name != 'categories' and controller.action_name != 'index' %>
+     <i class="fa-solid fa-search text-white text-3xl"></i>
+    <% end %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"text-white"%>
 </div>
