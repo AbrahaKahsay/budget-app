@@ -1,14 +1,12 @@
-
-
 require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
   before(:each) do
     @user = User.create(
-        name: 'Abraha',
-        email: 'abrahak81@gmail.com',
-        password: '123456'
-      )
+      name: 'Abraha',
+      email: 'abrahak81@gmail.com',
+      password: '123456'
+    )
     @expense = Expense.create(name: 'shopping', amount: 20, user_id: @user.id)
   end
 

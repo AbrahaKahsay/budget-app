@@ -13,7 +13,8 @@ RSpec.describe 'Categories page', type: :feature do
     fill_in 'Password', with: @user.password.to_s
     find("input[type='submit']").click
 
-    @category1 = Category.new(name: 'Travel', icon: 'https://png.pngtree.com/png-clipart/20220626/original/pngtree-plane-travel-logo-vector-template-png-image_8185591.png', user_id: 1)
+    @category1 = Category.new(name: 'Travel', icon: 'https://png.pngtree.com/png-clipart/20220626/original/pngtree-plane-travel-logo-vector-template-png-image_8185591.png',
+                              user_id: 1)
     @category1.user_id = @user.id
     @category1.save
   end
@@ -42,5 +43,4 @@ RSpec.describe 'Categories page', type: :feature do
     click_on 'Add Category'
     expect(current_path).to eq(new_category_path)
   end
-
 end
