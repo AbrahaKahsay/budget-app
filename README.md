@@ -3,6 +3,9 @@
 # Budget App
 > This App is about building a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
+## Screenshots
+![Screenshot from 2022-11-19 22-01-14](https://user-images.githubusercontent.com/75738563/202867238-3da627a7-0456-4e31-9d7a-7dd1bea5c883.png)
+
 ## Built With :hammer_and_wrench:
 
 - Major languages: Ruby
