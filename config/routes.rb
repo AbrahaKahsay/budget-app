@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'expenses/index'
+  get 'expenses/new'
   get 'categories/index'
   get 'categories/new'
   root "splashes#index"
