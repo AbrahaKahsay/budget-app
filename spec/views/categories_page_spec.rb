@@ -33,4 +33,14 @@ RSpec.describe 'Categories page', type: :feature do
     expect(page).to have_content('Add Category')
   end
 
+  it 'shows the category name' do
+    visit categories_path
+    expect(page).to have_content(@category1.name.to_s)
+  end
+
+  it 'Add category button should navigate to new page' do
+    click_on 'Add Category'
+    expect(current_path).to eq(new_category_path)
+  end
+
 end
