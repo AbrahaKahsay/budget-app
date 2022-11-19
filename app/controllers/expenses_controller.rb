@@ -10,6 +10,19 @@ class ExpensesController < ApplicationController
   def new
   end
 
+  def create
+    @expense = Expense.new(name: params[:name], amount: params[:amount], user_id: current_user.id)
+
+    if @expense.save!
+      params[:category_ids].each do |category_id|
+        CategoryExpense.create(category_id: category_id, expense_id: @expense.id) if category_id != ''
+      end
+      redirect_to category_expenses_path
+    else
+      render :new
+    end
+  end
+
   private 
   def expense_params 
     params.require(:expense).permit(:name, :amount)
