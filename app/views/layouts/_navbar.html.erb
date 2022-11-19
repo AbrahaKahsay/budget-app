@@ -1,6 +1,14 @@
 
 <div class="h-12 border-2 bg-main items-center p-2 flex justify-between text-white"> 
-    <i class="fa-solid fa-bars text-white text-3xl"></i>
+    <% if controller_name == 'categories' and controller.action_name == 'index' %>
+        <i class="fa-solid fa-bars text-white text-3xl"></i>
+    <%end%>
+
+    <% if controller_name == 'categories' and controller.action_name == 'new' %>
+        <%= link_to categories_path do%>
+           <i class="fa-solid fa-arrow-left text-white text-3xl"></i>
+        <%end%>
+    <%end%>
 
     <% if controller_name == 'categories' and controller.action_name == 'index' %>
     <h4>Categories</h4>  
@@ -9,5 +17,7 @@
     <% if controller_name == 'categories' and controller.action_name == 'new' %>
     <h4>New</h4>  
     <% end %>
+
+
     <i class="fa-solid fa-search text-white text-3xl"></i>
 </div>
