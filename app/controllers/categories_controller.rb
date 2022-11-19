@@ -31,3 +31,5 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name, :icon)
   end
 end
+
+# This stuff is not complete
