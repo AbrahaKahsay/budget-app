@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  root "pages#home"
+  root "splashes#index"
   devise_for :users
 
   resources :users
-
   resources :categories, only: [:index,:show, :new, :create] do
     resources :expenses, only: [:index, :show, :new, :create]
   end

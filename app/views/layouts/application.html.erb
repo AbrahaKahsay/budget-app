@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   </head>
 
-  <body class="d-flex flex-column">
-  <%= render 'shared/navbar'%>
+  <body class="font-nova h-screen">
+
   <div id="page-content">
     <p class="notice a"><%= notice %></p>
     <p class="alert a"><%= alert %></p>
     <%= yield %>
   </div>
-  <%= render 'shared/footer'%>
+  <%# <%= render 'shared/footer'%> 
 </body>
 </html>

@@ -76,3 +76,5 @@ group :test do
 end
 
 gem 'ffi'
+
+gem "tailwindcss-rails", "~> 2.0"
