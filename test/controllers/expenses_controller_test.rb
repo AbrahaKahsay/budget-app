@@ -1,12 +1,12 @@
-require "test_helper"
+require 'test_helper'
 
 class ExpensesControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  test 'should get index' do
     get expenses_index_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get expenses_new_url
     assert_response :success
   end
