@@ -1,15 +1,15 @@
 <section class="h-full w-full min-h-screen flex flex-col">
   <div class="h-4/5 w-full flex flex-col border-2 overflow-y-scroll">
     <% @categories.each do |category|%>
-      <div class="flex rounded bg-white w-full border-2 gap-4 p-4">
+      <div class="flex rounded bg-white w-full  gap-4 p-4">
         <div class="w-24 border-2">
           <%= image_tag category.icon, :alt => 'icon-logo'%>
         </div>
 
-        <div class="w-3/4 flex flex-col border-2">
+        <div class="w-3/4 flex flex-col ">
           <div class="flex items-center justify-between py-4">
-            <h1 class="text-2xl font-bold text-gray-400"><%= category.name%></h1>
-            <h3 class="text-2xl  text-gray-600">$300</h3>
+            <h1 class="text-2xl font-bold text-gray-400 hover:main-text"><%= link_to category.name, category_expenses_path(category)%></h1>
+            <h3 class="text-2xl  text-gray-600">$ <%= @total[category.id]%></h3>
           </div>
 
           <div class="flex text-gray-400 text-sm">
