@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/new'
   root "splashes#index"
   devise_for :users
 
