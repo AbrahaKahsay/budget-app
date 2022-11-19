@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   get 'expenses/index'
   get 'expenses/new'
   get 'categories/index'
