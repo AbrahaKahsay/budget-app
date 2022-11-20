@@ -14,7 +14,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https:https://gleaming-douhua-695c31.netlify.app/)
+[Live Demo Link](https://abraha-budget.herokuapp.com/)
 
 ## Setup
 
