@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   </head>
 
-  <body>
+  <body class="font-nova h-screen">
+
+  
+  <% if controller_name != 'splashes' and controller_name != 'sessions' and controller_name != 'registrations'%>
+    <%= render 'layouts/navbar'%>
+  <% end %>
+
+  
+  <div id="page-content">
+    <p class="notice a"><%= notice %></p>
+    <p class="alert a"><%= alert %></p>
     <%= yield %>
-  </body>
+  </div>
+  <%# <%= render 'shared/footer'%> 
+</body>
 </html>

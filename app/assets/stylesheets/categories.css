@@ -1,0 +1,7 @@
+
+.category {
+  display: flex;
+  gap: 20px;
+  margin: 10px 20px;
+  border: 1px solid black;
+}

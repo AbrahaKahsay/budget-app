@@ -1,0 +1,35 @@
+<section class="flex flex-col h-full w-full bg-white min-h-screen gap-4">
+    <div class="pt-4 px-2 border-2 flex gap-4">
+      <div class="w-24">
+        <%= image_tag @category.icon, :alt => 'category-logo', class: 'rounded-l w-24'%>
+      </div>
+      <div class="w-3/4 flex flex-col gap-8">
+        <div class="flex items-center justify-between gap-12 py-4">
+          <h1 class="text-2xl font-bold text-gray-600 hover:main-text"> <%=@category.name%></h1>
+          <h5 class="text-2xl font-bold text-gray-900"> $ <%= @total%></h5>
+        </div>
+        <div  class="text-gray-400 text-sm">
+          <p>Created: <%=time_ago_in_words @category.created_at%>
+        </div>
+      </div>
+    </div>
+    <div class="h-4/5 flex flex-col w-full items-center p-4 gap-4 overflow-y-scroll "> 
+        <% @expenses.each do |expense|%>
+          <div class="rounded-lg shadow-lg bg-white w-full flex flex-col gap-4 p-4">
+            <div class="font-semibold flex justify-between">
+              <h1> <%= expense.name%> </h1>
+              <h1>$ <%= expense.amount%> </h1>
+            </div>
+            <div class="flex text-gray-400 text-sm">
+            <p>Created: <%= time_ago_in_words expense.created_at%> </p>
+          </div>
+          </div>
+        <%end%> 
+        <% if @expenses.empty?%>
+          <p class="font-bold text-xl text-main-second"> Nothing Here yet</p>
+        <%end%>
+      </div>
+      <div class="fixed bottom-0 right-0 bg-main-second w-full p-4 text-white flex items-center justify-center ">
+    <%= link_to 'Add Expense', new_category_expense_path, class: 'w-full flex items-center justify-center p-8 rounded-md border-2'%>
+  </div> 
+</section>
