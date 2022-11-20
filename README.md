@@ -14,7 +14,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https:)
+[Live Demo Link](https:https://gleaming-douhua-695c31.netlify.app/)
 
 ## Setup
 
@@ -66,6 +66,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+-  Thanks to Gregoire Vella on Behance the author of the original design
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
