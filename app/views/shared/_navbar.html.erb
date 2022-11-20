@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <%= link_to "BudgetApp", root_path, class: "navbar-brand", id: 'logo'%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="span-color navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/categories">Categories</a>
+        </li>
+      </ul>
+      <% if user_signed_in? %>
+      <h3 class="navbar-brand name"><%= current_user.name.capitalize %></h3>
+      <%end %>
+    </div>
+  </div>
+</nav>
