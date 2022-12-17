@@ -29,7 +29,6 @@ https://github.com/AbrahaKahsay/budget-app.git
 - rails db:create
 - rails db:drop
 - rails db:reset
-
 ## Starting up the webserver
 
 - rails s # or
